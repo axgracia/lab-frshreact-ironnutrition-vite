@@ -1,18 +1,12 @@
 
-
-function FoodBox({ food }) {
-    const { name, calories, image, servings } = food;
-  
+function FoodBox({ food, onDelete }) {
     return (
-      <div>
-        <p>{name}</p>
-        <img src={image} alt={name} />
-        <p>Calories: {calories}</p>
-        <p>Servings: {servings}</p>
-        <p>
-          <b>Total Calories: {servings * calories}</b> kcal
-        </p>
-        <button>Delete</button>
+      <div className="food-box">
+        <h2>{food.name}</h2>
+        <img src={food.image} alt={food.name} />
+        <p>Calories: {food.calories}</p>
+        <p>Servings: {food.servings}</p>
+        <button onClick={() => onDelete(food.id)}>Delete</button>
       </div>
     );
   }
